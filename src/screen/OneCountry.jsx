@@ -45,7 +45,7 @@ const OneCountry = () => {
 
   useEffect(() => {
     countryFetching();
-  }, [useParams]);
+  }, [params]);
 
   const languageValues = countryInfo?.languages
     ? Object.keys(countryInfo.languages).map(
@@ -156,13 +156,13 @@ const OneCountry = () => {
               <div className="mt-20 flex flex-wrap items-center gap-5">
                 <span className="font-semibold">Border Countries: </span>
                 {countries.map((item, idx) => (
-                  <a
+                  <Link
                     key={idx}
-                    href={`/country/${item}`}
+                    to={`/country/${item}`}
                     className="bg-secondary rounded-md border cursor-pointer"
                   >
                     <div className="px-4 py-0.5  shadow-md">{item}</div>
-                  </a>
+                  </Link>
                 ))}
               </div>
             )}
