@@ -32,7 +32,7 @@ const CountryCard = ({ AllCountries, isLoading }) => {
   return (
     <div className="container grid mb-20 place-items-center grid-cols-1 gap-10 md:grid-cols-3 lg:grid-cols-4 max-w-7xl px-3 mx-auto mt-20">
       {AllCountries?.filter((item) =>
-        item?.name.common.includes(searchTerm)
+        item?.name.common.includes(searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1))
       ).map((item, idx) => (
         <div
           key={idx}
