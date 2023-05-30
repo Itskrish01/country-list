@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { ThemeContext } from "../ThemeProvider";
+import { motion } from "framer-motion";
 
 const CountryCard = ({ AllCountries, isLoading }) => {
   const { searchTerm } = useContext(ThemeContext);
@@ -32,9 +33,14 @@ const CountryCard = ({ AllCountries, isLoading }) => {
   return (
     <div className="container grid mb-20 place-items-center grid-cols-1 gap-10 md:grid-cols-3 lg:grid-cols-4 max-w-7xl px-3 mx-auto mt-20">
       {AllCountries?.filter((item) =>
-        item?.name.common.includes(searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1))
+        item?.name.common.includes(
+          searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1)
+        )
       ).map((item, idx) => (
-        <div
+        <motion.div
+          initial={{ opacity: 0, translateY: -10 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ duration: 0.3, delay: 0 + idx * 0.2 }}
           key={idx}
           onClick={() => navigate(`/country/${item?.name.common}`)}
           className="card rounded-lg cursor-pointer h-96 w-96 sm:w-72 bg-secondary shadow-xl border border-black/10"
@@ -62,7 +68,7 @@ const CountryCard = ({ AllCountries, isLoading }) => {
               <p>{item?.capital}</p>
             </div>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );

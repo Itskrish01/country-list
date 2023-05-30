@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BsArrowLeft } from "react-icons/bs";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 const OneCountry = () => {
   const params = useParams();
@@ -99,39 +100,74 @@ const OneCountry = () => {
           <p className="">Back</p>
         </Link>
         <div className="flex items-center flex-wrap sm:flex-nowrap justify-evenly gap-20 sm:gap-44 mt-10">
-          <img
+          <motion.img
+            initial={{ opacity: 0, translateY: -10 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{ duration: 0.3, delay: 0 }}
             src={countryInfo?.flags.png}
             alt={countryInfo?.flags.alt}
             className="rounded-lg sm:h-[24rem] sm:w-[34rem] h-full w-full"
           />
           <div className="">
-            <h2 className="text-4xl font-medium mb-10">
+            <motion.h2
+              initial={{ opacity: 0, translateY: -10 }}
+              animate={{ opacity: 1, translateY: 0 }}
+              transition={{ duration: 0.3, delay: 0.2 }}
+              className="text-4xl font-medium mb-10"
+            >
               {countryInfo?.name.common}
-            </h2>
+            </motion.h2>
             <ul className="flex sm:flex-row flex-col gap-10 sm:gap-20 text-base">
               <div className="flex flex-col gap-3">
-                <li className="whitespace-nowrap">
+                <motion.li
+                  initial={{ opacity: 0, translateY: -10 }}
+                  animate={{ opacity: 1, translateY: 0 }}
+                  transition={{ duration: 0.3, delay: 0.4 }}
+                  className="whitespace-nowrap"
+                >
                   <span className="font-semibold">Native Name:</span>{" "}
                   {countryInfo?.name.common}
-                </li>
-                <li>
+                </motion.li>
+                <motion.li
+                  initial={{ opacity: 0, translateY: -10 }}
+                  animate={{ opacity: 1, translateY: 0 }}
+                  transition={{ duration: 0.3, delay: 0.6 }}
+                >
                   <span className="font-semibold">Population:</span>{" "}
                   {countryInfo?.population}
-                </li>
-                <li>
+                </motion.li>
+                <motion.li
+                  initial={{ opacity: 0, translateY: -10 }}
+                  animate={{ opacity: 1, translateY: 0 }}
+                  transition={{ duration: 0.3, delay: 0.8 }}
+                >
                   <span className="font-semibold">Region:</span>{" "}
                   {countryInfo?.region}
-                </li>
-                <li className=" whitespace-nowrap">
+                </motion.li>
+                <motion.li
+                  initial={{ opacity: 0, translateY: -10 }}
+                  animate={{ opacity: 1, translateY: 0 }}
+                  transition={{ duration: 0.3, delay: 1 }}
+                  className=" whitespace-nowrap"
+                >
                   <span className="font-semibold">Sub Region:</span>{" "}
                   {countryInfo?.subregion}
-                </li>
-                <li>
+                </motion.li>
+                <motion.li
+                  initial={{ opacity: 0, translateY: -10 }}
+                  animate={{ opacity: 1, translateY: 0 }}
+                  transition={{ duration: 0.3, delay: 1.2 }}
+                >
                   <span className="font-semibold">Capital:</span>{" "}
                   {countryInfo?.capital}
-                </li>
+                </motion.li>
               </div>
-              <div className="flex flex-col md:mt-0 mt-5 sm:mt-0 gap-4">
+              <motion.div
+                initial={{ opacity: 0, translateX: -10 }}
+                animate={{ opacity: 1, translateX: 0 }}
+                transition={{ duration: 0.3, delay: 1.4 }}
+                className="flex flex-col md:mt-0 mt-5 sm:mt-0 gap-4"
+              >
                 <li className=" whitespace-nowrap">
                   <span className="font-semibold">Top Level Domain:</span>{" "}
                   {countryInfo?.tld}
@@ -149,20 +185,24 @@ const OneCountry = () => {
                     {languageList}
                   </div>
                 </li>
-              </div>
+              </motion.div>
             </ul>
 
             {countryInfo?.borders !== undefined && (
               <div className="mt-20 flex flex-wrap items-center gap-5">
                 <span className="font-semibold">Border Countries: </span>
                 {countries.map((item, idx) => (
-                  <Link
+                  <motion.div
+                    initial={{ opacity: 0, translateY: -10 }}
+                    animate={{ opacity: 1, translateY: 0 }}
+                    transition={{ duration: 0.3, delay: 0 + idx * 0.2 }}
                     key={idx}
-                    to={`/country/${item}`}
                     className="bg-secondary rounded-md border cursor-pointer"
                   >
-                    <div className="px-4 py-0.5  shadow-md">{item}</div>
-                  </Link>
+                    <Link to={`/country/${item}`}>
+                      <div className="px-4 py-0.5  shadow-md">{item}</div>
+                    </Link>
+                  </motion.div>
                 ))}
               </div>
             )}
