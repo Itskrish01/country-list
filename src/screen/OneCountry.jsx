@@ -70,7 +70,10 @@ const OneCountry = () => {
 
   if (loading) {
     return (
-      <div role="status" className="flex justify-center items-center h-[70vh]">
+      <div
+        role="status"
+        className="flex justify-center items-center h-[70vh] transition-all duration-300"
+      >
         <svg
           aria-hidden="true"
           class="inline w-20 h-20 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-gray-600 dark:fill-gray-300"
@@ -94,7 +97,7 @@ const OneCountry = () => {
 
   return (
     <>
-      <div className="container mb-20 max-w-7xl px-3 mx-auto mt-20">
+      <div className="container mb-20 max-w-7xl px-3 mx-auto mt-20 transition-all duration-300">
         <Link to="/" className="btn w-32 flex items-center gap-3">
           <BsArrowLeft />
           <p className="">Back</p>

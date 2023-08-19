@@ -6,7 +6,7 @@ import OneCountry from "./screen/OneCountry";
 
 function App() {
   return (
-    <div>
+    <div className="">
       <Header />
       <Routes>
         <Route path="/" element={<AllCountries />} />

@@ -31,7 +31,7 @@ const CountryCard = ({ AllCountries, isLoading }) => {
     );
   }
   return (
-    <div className="container grid mb-20 place-items-center grid-cols-1 gap-10 md:grid-cols-3 lg:grid-cols-4 max-w-7xl px-3 mx-auto mt-20">
+    <div className="container grid mb-20  place-items-center grid-cols-1 gap-10 md:grid-cols-3 lg:grid-cols-4 max-w-7xl px-3 mx-auto mt-20">
       {AllCountries?.filter((item) =>
         item?.name.common.includes(
           searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1)
@@ -43,7 +43,7 @@ const CountryCard = ({ AllCountries, isLoading }) => {
           transition={{ duration: 0.3, delay: 0 + idx * 0.2 }}
           key={idx}
           onClick={() => navigate(`/country/${item?.name.common}`)}
-          className="card rounded-lg cursor-pointer h-96 w-96 sm:w-72 bg-secondary shadow-xl border border-black/10"
+          className="card rounded-lg cursor-pointer h-96 w-96 sm:w-72 bg-secondary shadow-xl border  border-black/10"
         >
           <figure>
             <img

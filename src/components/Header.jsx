@@ -20,7 +20,7 @@ const Header = () => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
   return (
-    <div className="py-5 shadow-lg bg-secondary">
+    <div className="py-5 shadow-lg bg-secondary transition-all duration-300">
       <div className="container max-w-7xl px-3 mx-auto flex justify-between">
         <h2 className="font-semibold sm:text-xl ">Where in the world?</h2>
         <div
